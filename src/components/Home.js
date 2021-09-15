@@ -13,9 +13,7 @@ const FiltroVitrine = styled.nav`
     justify-content: space-between;
     padding: 10px;
 `
-const Viagem = styled.div`
 
-`
 
 export default class Home extends React.Component {
     
@@ -27,7 +25,9 @@ export default class Home extends React.Component {
                 <p>Quantidade de produtos:</p>
                 <p>Ordenação:</p>
             </FiltroVitrine>
+            <div>
 
+            </div>
             </Vitrine>
         )
     };
