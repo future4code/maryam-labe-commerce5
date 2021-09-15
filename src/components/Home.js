@@ -4,16 +4,24 @@ import styled from 'styled-components';
 const Vitrine = styled.div`
     background-color: aliceblue;
 `
+const FiltroVitrine = styled.nav`
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+`
 
 export default class Home extends React.Component {
 
     render() {
         return (
-            <Vitrine> OOOOOOOOOOOOOOOOOOOOIIIIIIIIIIIIIIContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical 
-            atin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden
-            -Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-             passage, and going through thContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical 
-            atin literature from 4</Vitrine>
+            <Vitrine> 
+            <FiltroVitrine> 
+                <p>Quantidade de produtos:</p>
+                <p>Ordenação:</p>
+            </FiltroVitrine>
+
+            </Vitrine>
         )
     };
 }
