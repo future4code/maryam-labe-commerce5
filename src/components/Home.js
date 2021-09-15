@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+
+
 const Vitrine = styled.div`
     background-color: aliceblue;
 `
@@ -10,8 +13,12 @@ const FiltroVitrine = styled.nav`
     justify-content: space-between;
     padding: 10px;
 `
+const Viagem = styled.div`
+
+`
 
 export default class Home extends React.Component {
+    
 
     render() {
         return (
