@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ViagemContainer = styled.div`
+
     border-radius: 5px;
     border: 1px solid lightgray;
     box-shadow: 5px 2px 2px lightgray;
@@ -17,6 +18,7 @@ const Botao = styled.button`
     border-radius: 3px;
     cursor: pointer;
 `
+
 
 
 
