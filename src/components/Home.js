@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
-
-const Vitrine = styled.div`
-    background-color: aliceblue;
-`
 const FiltroVitrine = styled.nav`
     background-color: aliceblue;
     display: flex;
@@ -20,7 +14,7 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <Vitrine> 
+            <nav> 
             <FiltroVitrine> 
                 <p>Quantidade de produtos:</p>
                 <p>Ordenação:</p>
@@ -28,7 +22,7 @@ export default class Home extends React.Component {
             <div>
 
             </div>
-            </Vitrine>
+            </nav>
         )
     };
 }

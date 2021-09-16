@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Carrinho from './components/Carrinho';
 import Filtros from './components/Filtros';
 import Home from './components/Home';
+import CardViagem from './components/CardViagem';
 import styled from 'styled-components';
 import plutao from './components/img/sun-seen-from-pluto.jpg';
 import tritao from './components/img/sun-seen-from-triton-neptune.jpg';
@@ -19,64 +20,66 @@ const LayoutGeral = styled.div`
   grid-template-columns: 1fr 3fr 1fr;
 `
 
-const FiltroVitrine = styled.nav`
-    background-color: aliceblue;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+const CatalogoViagem = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 20px;
+    text-align: center;
 `
 
-function App () {
+export default class App extends Component {
 
-  // const produtos = [
-  //     {   id: 1,
-  //         imagem: plutao,
-  //         texto: "O Sol e Caronte vistos da superfície de Plutão",
-  //         valor: 150000,
-  //     },
-  //     {   id: 2,
-  //         imagem: tritao,
-  //         texto: "Veja o Sol e Netuno vistos a partir da lua Tritão",
-  //         valor: 145000,
-  //     },
-  //     {   id: 3,
-  //         imagem: saturno,
-  //         texto: "Uma das mais românticas paisagens, consulte nossa opção exclusiva para casais",
-  //         valor: 175000,
-  //     },
-  //     {   id: 4,
-  //         imagem: ariel,
-  //         texto: "Urano e o Sol vistos a partir da superfície da lua Ariel",
-  //         valor: 130000,
-  //     },
-  //     {   id: 5,
-  //         imagem: europa,
-  //         texto: "O Sol forma um halo ao redor de Júpiter, vistos da superfície de Europa",
-  //         valor: 90000,
-  //     },
-  //     {   id: 6,
-  //         imagem: marte,
-  //         texto: "Ontem temos a maior colônia, ótima opção para passar aquele período sabático conosco",
-  //         valor: 150000,
-  //     },
-  //     {   id: 7,
-  //         imagem: venus,
-  //         texto: "Vênus, a viagem mais curta de nosso catálogo e também uma das mais inesquecíveis",
-  //         valor: 75000,
-  //     },
-  //     {   id: 8,
-  //         imagem: mercurio,
-  //         texto: "Paisaegm de tirar o fôlego conheça Mercúrio",
-  //         valor: 80000,
-  //     },
-  //     {   id: 9,
-  //         imagem: trappist,
-  //         texto: "Estrela TRAPPIST-1 fica na constelação de Aquário, atmosfera semelhante com a da Terra",
-  //         valor: 250000,
-  //     },
-  // ]
+  state = {
+   produtos: [
+      {   id: 1,
+          imagem: plutao,
+          texto: "O Sol e Caronte vistos da superfície de Plutão",
+          valor: 150000,
+      },
+      {   id: 2,
+          imagem: tritao,
+          texto: "Veja o Sol e Netuno vistos a partir da lua Tritão",
+          valor: 145000,
+      },
+      {   id: 3,
+          imagem: saturno,
+          texto: "Uma das mais românticas paisagens, consulte nossa opção exclusiva para casais",
+          valor: 175000,
+      },
+      {   id: 4,
+          imagem: ariel,
+          texto: "Urano e o Sol vistos a partir da superfície da lua Ariel",
+          valor: 130000,
+      },
+      {   id: 5,
+          imagem: europa,
+          texto: "O Sol forma um halo ao redor de Júpiter, vistos da superfície de Europa",
+          valor: 90000,
+      },
+      {   id: 6,
+          imagem: marte,
+          texto: "Ontem temos a maior colônia, ótima opção para passar aquele período sabático conosco",
+          valor: 150000,
+      },
+      {   id: 7,
+          imagem: venus,
+          texto: "Vênus, a viagem mais curta de nosso catálogo e também uma das mais inesquecíveis",
+          valor: 75000,
+      },
+      {   id: 8,
+          imagem: mercurio,
+          texto: "Paisaegm de tirar o fôlego conheça Mercúrio",
+          valor: 80000,
+      },
+      {   id: 9,
+          imagem: trappist,
+          texto: "Estrela TRAPPIST-1 localizada na constelação de Aquário, atmosfera semelhante com a da Terra",
+          valor: 250000,
+      },
+  ]}
 
-
+  render() {
   return (
     <LayoutGeral>
       {/* <Filtros /> */}
@@ -87,7 +90,14 @@ function App () {
          Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum The Extremes of Good
          and Evil by H. Rackham.</p>
       <div>
-        <CardViagem 
+      
+      <CatalogoViagem>
+      {this.state.produtos.map(produto => {
+        return <CardViagem key={produto.id} produto={produto} />
+      })} 
+      </CatalogoViagem>
+
+        {/* <CardViagem 
           id = {1}
           imagem = {plutao}
           texto = {"O Sol e Caronte vistos da superfície de Plutão"}
@@ -140,8 +150,7 @@ function App () {
           imagem = {trappist}
           texto = {"Estrela TRAPPIST-1 fica na constelação de Aquário, atmosfera semelhante com a da Terra"}
           valor = {250000}
-        />
-
+        /> */}
       </div>
       {/* <Carrinho /> */}
       <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical 
@@ -152,7 +161,6 @@ function App () {
          and Evil by Cicero, wriranslation by H. Rackham.</p>
     </LayoutGeral>
   );
-
+  }
 }
 
-export default App;
