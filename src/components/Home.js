@@ -2,27 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FiltroVitrine = styled.nav`
-    background-color: aliceblue;
+    color: white;
+    background-color: black;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
     padding: 10px;
 `
 
 
-export default class Home extends React.Component {
-    
+export function Home(props) {
 
-    render() {
-        return (
-            <nav> 
-            <FiltroVitrine> 
-                <p>Quantidade de produtos:</p>
-                <p>Ordenação:</p>
-            </FiltroVitrine>
-            <div>
+    const arrayprodutos= props.produtos
 
-            </div>
-            </nav>
-        )
-    };
+    return (
+   
+    <FiltroVitrine> 
+        <div>
+            <p>Quantidade de produtos: {arrayprodutos.length}</p>
+        </div>
+        <span>
+            <label for="ordenacao">Ordenar </label>
+            <select name="order" value={props.ordem}>
+                <option value={1}>Crescente</option>
+                <option value={-1}>Decrescente</option>
+            </select>
+        </span> 
+    </FiltroVitrine>
+    )
 }
+export default Home;
