@@ -24,7 +24,7 @@ const CatalogoViagem = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
-    row-gap: 20px;
+    row-gap: 10px;
     text-align: center;
 `
 
