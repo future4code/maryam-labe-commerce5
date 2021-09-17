@@ -4,7 +4,7 @@ import Filtros from "./Filtros";
 
 const FiltroVitrine = styled.nav`
   color: white;
-  background-color: black;
+  background-color: palevioletred;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -21,7 +21,7 @@ export function Home(props) {
       </div>
       <span>
         <label for="ordenacao">Ordenar </label>
-        <select name="order" value={props.ordem}>
+        <select name="order" value={props.ordem} onChange={props.onChangeOrdenarProdutos}>
           <option value={1}>Crescente</option>
           <option value={-1}>Decrescente</option>
         </select>
