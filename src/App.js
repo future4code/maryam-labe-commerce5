@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Carrinho from "./components/Carrinho";
 import Filtros from "./components/Filtros";
 import Home from "./components/Home";
-import CardViagem from "./components/cardViagem";
+import CardViagem from "./components/CardViagem";
 import styled from "styled-components";
 import plutao from "./components/img/sun-seen-from-pluto.jpg";
 import tritao from "./components/img/sun-seen-from-triton-neptune.jpg";
@@ -17,7 +17,16 @@ import trappist from "./components/img/Trappist-1E.png";
 const LayoutGeral = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
+  text-align: center;
+
 `;
+
+const Header = styled.div`
+font-family: garamond;
+  background-image: linear-gradient(to right, gray , pink);
+  color: white;
+  grid-column: 1 / span 4;
+`
 
 const CatalogoViagem = styled.div`
   display: grid;
@@ -90,10 +99,15 @@ export default class App extends Component {
         valor: 250000,
       },
     ],
-    ordem: "asc",
+    sortingParameter: "valor",
+    ordem: 1,
     valorMinimo: "",
     valorMaximo: "",
     buscaPorNome: "",
+  };
+
+  onChangeOrdenarProdutos = (event) =>{
+    this.setState({ordem: event.target.value});
   };
 
   adicionarCarrinho = (id) => {};
@@ -107,10 +121,15 @@ export default class App extends Component {
   onChangeBuscaPorNome = (event) => {
     this.setState({ buscaPorNome: event.target.value });
   };
+  
 
   render() {
     return (
       <LayoutGeral>
+        <Header>
+        <h1>INTERESTELAR</h1>
+        <h2>Sua próxima viagem está aqui</h2>
+        </Header>
         <Filtros
           valorMinimo={this.state.valorMinimo}
           valorMaximo={this.state.valorMaximo}
@@ -120,7 +139,8 @@ export default class App extends Component {
           onChangeBuscaPorNome={this.onChangeBuscaPorNome}
         />
         <div>
-          <Home produtos={this.state.produtos} ordem={this.state.ordem} />
+          <Home produtos={this.state.produtos} ordem={this.state.ordem} 
+          onChangeOrdenarProdutos={this.onChangeOrdenarProdutos}/>
 
           <CatalogoViagem>
             {this.state.produtos
@@ -140,6 +160,9 @@ export default class App extends Component {
                 return produto.texto
                   .toLowerCase()
                   .includes(this.state.buscaPorNome.toLowerCase());
+              })
+              .sort((a,b)=>{
+                  return this.state.ordem * (a.valor - b.valor)
               })
               .map((produto) => {
                 return (
