@@ -127,7 +127,7 @@ export default class App extends Component {
     return (
       <LayoutGeral>
         <Header>
-        <h1>MULTIESTELAR</h1>
+        <h1>INTERESTELAR</h1>
         <h2>Sua próxima viagem está aqui</h2>
         </Header>
         <Filtros
