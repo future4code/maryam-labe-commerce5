@@ -13,6 +13,7 @@ import marte from "./components/img/sun-seen-from-mars.jpg";
 import venus from "./components/img/sun-seen-from-venus.jpg";
 import mercurio from "./components/img/sun-seen-from-mercury.jpg";
 import trappist from "./components/img/Trappist-1E.png";
+
 const LayoutGeral = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -118,6 +119,56 @@ export default class App extends Component {
   onChangeBuscaPorNome = (event) => {
     this.setState({ buscaPorNome: event.target.value });
   };
+  // --------------------------------------------------------------------
+  // adicionarCarrinho = (produtoId) => {
+  //   const produtosNoCarrinho = this.state.produtosNoCarrinho.find(
+  //     (produto) => produtoId === produto.id
+  //   );
+
+  //   if (produtosNoCarrinho) {
+  //     const novoProdutosNoCarrinho = this.state.produtosNoCarrinho.map(
+  //       (produto) => {
+  //         if (produtoId === produto.id) {
+  //           return {
+  //             ...produto,
+  //             quantidade: produto.quantidade + 1,
+  //           };
+  //         }
+
+  //         return produto;
+  //       }
+  //     );
+
+  //     this.setState({ produtosNoCarrinho: novoProdutosNoCarrinho });
+  //   } else {
+  //     const produtoToCarrinho = produtos.find(
+  //       (produto) => produtoId === produto.id
+  //     );
+
+  //     const novoProdutosNoCarrinho = [
+  //       ...this.state.produtosNoCarrinho,
+  //       { ...produtosToCarrinho, quantidade: 1 },
+  //     ];
+
+  //     this.setState({ produtosNoCarrinho: novoProdutosNoCarrinho });
+  //   }
+  // };
+
+  // removerDoCarrinho = (produtoId) => {
+  //   const novoProdutosNoCarrinho = this.state.produtosNoCarrinho
+  //     .map((produto) => {
+  //       if (produto.id === produtoId) {
+  //         return {
+  //           ...produto,
+  //           quantidade: produto.quantidade - 1,
+  //         };
+  //       }
+  //       return produto;
+  //     })
+  //     .filter((produto) => produto.quantidade > 0);
+
+  //   this.setState({ produtosNoCarrinho: novoProdutosNoCarrinho });
+  // };
 
   render() {
     return (
@@ -140,7 +191,6 @@ export default class App extends Component {
             ordem={this.state.ordem}
             onChangeOrdenarProdutos={this.onChangeOrdenarProdutos}
           />
-
           <CatalogoViagem>
             {this.state.produtos
               .filter((produto) => {
@@ -174,8 +224,11 @@ export default class App extends Component {
               })}
           </CatalogoViagem>
         </div>
-        {/* <Carrinho /> */}
         <h3>Carrinho</h3>
+        {/* <Carrinho
+        produtosNoCarrinho={this.state.produtosNoCarrinho}
+        removerDoCarrinho={this.removerDoCarrinho}
+        />  */}
       </LayoutGeral>
     );
   }
