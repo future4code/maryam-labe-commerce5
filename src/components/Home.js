@@ -10,10 +10,8 @@ const FiltroVitrine = styled.nav`
   justify-content: space-around;
   padding: 10px;
 `;
-
 export function Home(props) {
   const arrayprodutos = props.produtos;
-
   return (
     <FiltroVitrine>
       <div>
@@ -21,7 +19,11 @@ export function Home(props) {
       </div>
       <span>
         <label for="ordenacao">Ordenar </label>
-        <select name="order" value={props.ordem} onChange={props.onChangeOrdenarProdutos}>
+        <select
+          name="order"
+          value={props.ordem}
+          onChange={props.onChangeOrdenarProdutos}
+        >
           <option value={1}>Crescente</option>
           <option value={-1}>Decrescente</option>
         </select>

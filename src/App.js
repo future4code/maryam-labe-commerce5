@@ -1,51 +1,31 @@
-
-import React, { Component } from 'react';
-import Carrinho from './components/Carrinho';
-import Filtros from './components/Filtros';
-import Home from './components/Home';
-import CardViagem from './components/cardViagem';
-import styled from 'styled-components';
-import plutao from './components/img/sun-seen-from-pluto.jpg';
-import tritao from './components/img/sun-seen-from-triton-neptune.jpg';
-import saturno from './components/img/sun-seen-from-saturn.jpg';
-import ariel from './components/img/sun-seen-from-ariel-uranus.jpg';
-import europa from './components/img/sun-seen-from-europa.jpg';
-import marte from './components/img/sun-seen-from-mars.jpg';
-import venus from './components/img/sun-seen-from-venus.jpg';
-import mercurio from './components/img/sun-seen-from-mercury.jpg';
-import trappist from './components/img/Trappist-1E.png';
-
-
-// import React, { Component } from "react";
-// import Carrinho from "./components/Carrinho";
-// import Filtros from "./components/Filtros";
-// import Home from "./components/Home";
-// import CardViagem from "./components/CardViagem";
-// import styled from "styled-components";
-// import plutao from "./components/img/sun-seen-from-pluto.jpg";
-// import tritao from "./components/img/sun-seen-from-triton-neptune.jpg";
-// import saturno from "./components/img/sun-seen-from-saturn.jpg";
-// import ariel from "./components/img/sun-seen-from-ariel-uranus.jpg";
-// import europa from "./components/img/sun-seen-from-europa.jpg";
-// import marte from "./components/img/sun-seen-from-mars.jpg";
-// import venus from "./components/img/sun-seen-from-venus.jpg";
-// import mercurio from "./components/img/sun-seen-from-mercury.jpg";
-// import trappist from "./components/img/Trappist-1E.png";
-// >>>>>>> 9de2ddc81126b55f6d459a060672df4c062c5731
+import React, { Component } from "react";
+import Carrinho from "./components/Carrinho";
+import Filtros from "./components/Filtros";
+import Home from "./components/Home";
+import CardViagem from "./components/CardViagem";
+import styled from "styled-components";
+import plutao from "./components/img/sun-seen-from-pluto.jpg";
+import tritao from "./components/img/sun-seen-from-triton-neptune.jpg";
+import saturno from "./components/img/sun-seen-from-saturn.jpg";
+import ariel from "./components/img/sun-seen-from-ariel-uranus.jpg";
+import europa from "./components/img/sun-seen-from-europa.jpg";
+import marte from "./components/img/sun-seen-from-mars.jpg";
+import venus from "./components/img/sun-seen-from-venus.jpg";
+import mercurio from "./components/img/sun-seen-from-mercury.jpg";
+import trappist from "./components/img/Trappist-1E.png";
 
 const LayoutGeral = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   text-align: center;
-
 `;
 
 const Header = styled.div`
-font-family: garamond;
-  background-image: linear-gradient(to right, gray , pink);
+  font-family: garamond;
+  background-image: linear-gradient(to right, gray, pink);
   color: white;
   grid-column: 1 / span 4;
-`
+`;
 
 const CatalogoViagem = styled.div`
   display: grid;
@@ -54,7 +34,6 @@ const CatalogoViagem = styled.div`
   row-gap: 10px;
   text-align: center;
 `;
-
 export default class App extends Component {
   state = {
     produtos: [
@@ -74,7 +53,7 @@ export default class App extends Component {
         id: 3,
         imagem: saturno,
         texto:
-          "Uma das mais românticas paisagens, consulte nossa opção exclusiva para casais",
+          "Saturno, uma das mais românticas paisagens! Consulte nossa opção exclusiva para casais",
         valor: 175000,
       },
       {
@@ -94,7 +73,7 @@ export default class App extends Component {
         id: 6,
         imagem: marte,
         texto:
-          "Ontem temos a maior colônia, ótima opção para passar aquele período sabático conosco",
+          "Visite Marte onde temos a maior colônia, ótima opção para passar aquele período sabático conosco",
         valor: 150000,
       },
       {
@@ -107,14 +86,14 @@ export default class App extends Component {
       {
         id: 8,
         imagem: mercurio,
-        texto: "Paisaegm de tirar o fôlego conheça Mercúrio",
+        texto: "Uma paisagem de tirar o fôlego, conheça Mercúrio!",
         valor: 80000,
       },
       {
         id: 9,
         imagem: trappist,
         texto:
-          "Estrela TRAPPIST-1 localizada na constelação de Aquário, atmosfera semelhante com a da Terra",
+          "Venha para Estrela TRAPPIST-1 localizada na constelação de Aquário, atmosfera semelhante com a da Terra",
         valor: 250000,
       },
     ],
@@ -125,8 +104,8 @@ export default class App extends Component {
     buscaPorNome: "",
   };
 
-  onChangeOrdenarProdutos = (event) =>{
-    this.setState({ordem: event.target.value});
+  onChangeOrdenarProdutos = (event) => {
+    this.setState({ ordem: event.target.value });
   };
 
   adicionarCarrinho = (id) => {};
@@ -141,53 +120,62 @@ export default class App extends Component {
     this.setState({ buscaPorNome: event.target.value });
   };
   // --------------------------------------------------------------------
-  adicionarCarrinho = (produtoId) => {
-    const produtosNoCarrinho = this.state.produtosNoCarrinho.find(produto => produtoId === produto.id)
+  // adicionarCarrinho = (produtoId) => {
+  //   const produtosNoCarrinho = this.state.produtosNoCarrinho.find(
+  //     (produto) => produtoId === produto.id
+  //   );
 
-    if(produtosNoCarrinho) {
-      const novoProdutosNoCarrinho = this.state.produtosNoCarrinho.map(produto => {
-        if(produtoId === produto.id) {
-          return {
-            ...produto,
-            quantidade: produto.quantidade + 1
-          }
-        }
+  //   if (produtosNoCarrinho) {
+  //     const novoProdutosNoCarrinho = this.state.produtosNoCarrinho.map(
+  //       (produto) => {
+  //         if (produtoId === produto.id) {
+  //           return {
+  //             ...produto,
+  //             quantidade: produto.quantidade + 1,
+  //           };
+  //         }
 
-        return produto
-      })
+  //         return produto;
+  //       }
+  //     );
 
-      this.setState({produtosNoCarrinho: novoProdutosNoCarrinho})
-    } else {
-      const produtoToCarrinho = produtos.find(produto => produtoId === produto.id)
+  //     this.setState({ produtosNoCarrinho: novoProdutosNoCarrinho });
+  //   } else {
+  //     const produtoToCarrinho = produtos.find(
+  //       (produto) => produtoId === produto.id
+  //     );
 
-      const novoProdutosNoCarrinho = [...this.state.produtosNoCarrinho, {...produtosToCarrinho, quantidade: 1}]
+  //     const novoProdutosNoCarrinho = [
+  //       ...this.state.produtosNoCarrinho,
+  //       { ...produtosToCarrinho, quantidade: 1 },
+  //     ];
 
-      this.setState({produtosNoCarrinho: novoProdutosNoCarrinho})
-    }
-  }
+  //     this.setState({ produtosNoCarrinho: novoProdutosNoCarrinho });
+  //   }
+  // };
 
-  removerDoCarrinho = (produtoId) => {
-    const novoProdutosNoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
-      if(produto.id === produtoId) {
-        return {
-          ...produto,
-          quantidade: produto.quantidade - 1
-        }
-      }
-      return produto
-    }).filter((produto) => produto.quantidade > 0)
+  // removerDoCarrinho = (produtoId) => {
+  //   const novoProdutosNoCarrinho = this.state.produtosNoCarrinho
+  //     .map((produto) => {
+  //       if (produto.id === produtoId) {
+  //         return {
+  //           ...produto,
+  //           quantidade: produto.quantidade - 1,
+  //         };
+  //       }
+  //       return produto;
+  //     })
+  //     .filter((produto) => produto.quantidade > 0);
 
-    this.setState({produtosNoCarrinho: novoProdutosNoCarrinho})
-  }
-
-//-----------------------------------------------------------------------------
+  //   this.setState({ produtosNoCarrinho: novoProdutosNoCarrinho });
+  // };
 
   render() {
     return (
       <LayoutGeral>
         <Header>
-        <h1>INTERESTELAR</h1>
-        <h2>Sua próxima viagem está aqui</h2>
+          <h1>INTERESTELAR</h1>
+          <h2>Sua próxima viagem está aqui</h2>
         </Header>
         <Filtros
           valorMinimo={this.state.valorMinimo}
@@ -198,26 +186,11 @@ export default class App extends Component {
           onChangeBuscaPorNome={this.onChangeBuscaPorNome}
         />
         <div>
-          <Home produtos={this.state.produtos} ordem={this.state.ordem} 
-          onChangeOrdenarProdutos={this.onChangeOrdenarProdutos}/>
-
-
-        <CatalogoViagem>
-        {this.state.produtos
-        .map(produto => {
-        return <CardViagem key={produto.id} produto={produto} adicionarCarrinho={this.adicionarCarrinho}/>
-        })
-        } 
-        </CatalogoViagem>
-
-      </div>
-       <Carrinho 
-          produtosNoCarrinho={this.state.produtosNoCarrinho}
-          removerDoCarrinho={this.removerDoCarrinho}
-       /> 
-    </LayoutGeral>
-  );
-      <LayoutGeral>
+          <Home
+            produtos={this.state.produtos}
+            ordem={this.state.ordem}
+            onChangeOrdenarProdutos={this.onChangeOrdenarProdutos}
+          />
           <CatalogoViagem>
             {this.state.produtos
               .filter((produto) => {
@@ -237,8 +210,8 @@ export default class App extends Component {
                   .toLowerCase()
                   .includes(this.state.buscaPorNome.toLowerCase());
               })
-              .sort((a,b)=>{
-                  return this.state.ordem * (a.valor - b.valor)
+              .sort((a, b) => {
+                return this.state.ordem * (a.valor - b.valor);
               })
               .map((produto) => {
                 return (
@@ -250,21 +223,13 @@ export default class App extends Component {
                 );
               })}
           </CatalogoViagem>
-        {/* </div> */}
-        {/* <Carrinho /> */}
-
-        <p>
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It
-          has roots in a piece of classical atin literature from 45 BC, making
-          it over 2000 years old. Richard McClintock, a Latin professor at
-          Hampden -Sydney College in Virginia, looked up one of the more obscure
-          Latin words, consectetur, from a Lorem Ipsum passage, and going
-          through the cites of the word in classical literature, discovered the
-          undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
-          1.10.33 of de Finibus Bonorum et Malorum The Extremes of Good and Evil
-          by Cicero, wriranslation by H. Rackham.
-        </p>
+        </div>
+        <h3>Carrinho</h3>
+        {/* <Carrinho
+        produtosNoCarrinho={this.state.produtosNoCarrinho}
+        removerDoCarrinho={this.removerDoCarrinho}
+        />  */}
       </LayoutGeral>
-    // );
+    );
   }
 }
